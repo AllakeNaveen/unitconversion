@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit Conversions</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      #home {
+        text-align: center;
+        padding: 20px;
+        background-color: #3498db;
+        color: #fff;
+      }
+
+      #home h1 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      #conversion-sections {
+        display: flex;
+        justify-content: center;
+      }
+
+      .conversion-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .conversion-card img {
+        width: 100px;
+      }
+
+      .conversion-card h2 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+
+      .conversion-card fieldset {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+      .conversion-card label,
+      .conversion-card input,
+      .conversion-card button {
+        display: block;
+        margin: 10px;
+      }
+
+      .conversion-card button {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .conversion-card button:hover {
+        background-color: #2980b9;
+      }
+
+      .conversion-card output {
+        font-weight: bold;
+      }
+
+      .go-home {
+        text-align: center;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="home">
+      <h1>Unit Conversions</h1>
+    </section>
+
+    <div id="conversion-sections">
+      <div class="conversion-card">
+        <img src="thermo.png" alt="Temperature">
+        <h2>Celsius to Fahrenheit</h2>
+        <fieldset>
+          <label for="celsius">Celsius</label>
+          <input type="number" id="celsius">
+          <button id="temperature">Convert</button>
+          <output id="fahrenheit"></output>
+        </fieldset>
+        <p>To convert Celsius to Fahrenheit: (C × 9/5) + 32</p>
+      </div>
+
+      <div class="conversion-card">
+        <img src="weight.png" alt="Weight">
+        <h2>Kilogram to Pound</h2>
+        <fieldset>
+          <label for="kilograms">Kilograms</label>
+          <input type="number" id="kilograms">
+          <button id="weight">Convert</button>
+          <output id="pounds"></output>
+        </fieldset>
+        <p>To convert Kilograms to Pounds: kg x 2.205</p>
+      </div>
+
+      <div class="conversion-card">
+        <img src="speedo.png" alt="Distance">
+        <h2>Kilometer to Mile</h2>
+        <fieldset>
+          <label for="kilometers">Kilometers</label>
+          <input type="number" id="kilometers">
+          <button id="distance">Convert</button>
+          <output id="miles"></output>
+        </fieldset>
+        <p>To convert Kilometers to Miles: km ÷ 1.609</p>
+      </div>
+    </div>
+
+    <div class="go-home">
+      <a href="#home">
+        <img src="home.svg" alt="Home">
+      </a>
+    </div>
+  </body>
+</html>
+<!-- Add this JavaScript code to your HTML file -->
+<script>
+    // Function to convert Celsius to Fahrenheit
+    function convertTemperature() {
+      const celsius = parseFloat(document.getElementById('celsius').value);
+      const fahrenheit = (celsius * 9/5) + 32;
+      document.getElementById('fahrenheit').textContent = fahrenheit.toFixed(2) + " °F";
+    }
+  
+    // Function to convert Kilograms to Pounds
+    function convertWeight() {
+      const kilograms = parseFloat(document.getElementById('kilograms').value);
+      const pounds = kilograms * 2.205;
+      document.getElementById('pounds').textContent = pounds.toFixed(2) + " lbs";
+    }
+  
+    // Function to convert Kilometers to Miles
+    function convertDistance() {
+      const kilometers = parseFloat(document.getElementById('kilometers').value);
+      const miles = kilometers / 1.609;
+      document.getElementById('miles').textContent = miles.toFixed(2) + " miles";
+    }
+  
+    // Attach event listeners to the conversion buttons
+    document.getElementById('temperature').addEventListener('click', convertTemperature);
+    document.getElementById('weight').addEventListener('click', convertWeight);
+    document.getElementById('distance').addEventListener('click', convertDistance);
+  </script>
+  
